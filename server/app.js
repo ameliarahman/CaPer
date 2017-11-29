@@ -3,9 +3,10 @@ const app = express()
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv').config()
 const cors = require('cors')
+const mongoose = require('mongoose')
 
 app.use(cors())
-
+mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 

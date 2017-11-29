@@ -10,10 +10,10 @@ export default {
   components: {
   }
 }
+
 </script>
 
 <style>
 #app {
-
 }
 </style>

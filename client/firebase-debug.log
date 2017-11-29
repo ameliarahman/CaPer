@@ -1,0 +1,43 @@
+[debug] [2017-11-29T12:07:44.206Z] ----------------------------------------------------------------------
+[debug] [2017-11-29T12:07:44.210Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-11-29T12:07:44.210Z] CLI Version:   3.15.3
+[debug] [2017-11-29T12:07:44.210Z] Platform:      linux
+[debug] [2017-11-29T12:07:44.210Z] Node Version:  v8.5.0
+[debug] [2017-11-29T12:07:44.210Z] Time:          Wed Nov 29 2017 19:07:44 GMT+0700 (WIB)
+[debug] [2017-11-29T12:07:44.210Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-11-29T12:07:44.228Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-11-29T12:07:44.228Z] > authorizing via signed-in user
+[debug] [2017-11-29T12:07:44.231Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-11-29T12:07:44.231Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/Za1JmrZFRQGJIi-H2g3muzEnqLENUsuJ9LfvENSY50c',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Nov 29 2017 19:07:44 GMT+0700 (WIB)
+[debug] [2017-11-29T12:07:44.406Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-29T12:07:44.464Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/caper-c5657  
+ Wed Nov 29 2017 19:07:44 GMT+0700 (WIB)
+[debug] [2017-11-29T12:07:45.468Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-29T12:07:45.471Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/caper-c5657/tokens  
+ Wed Nov 29 2017 19:07:45 GMT+0700 (WIB)
+[debug] [2017-11-29T12:08:46.273Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/ameliarahman/Hacktiv8/Fase2-mastery/Week3/Rabu/Caper/client'...
+[info] 
+[debug] [2017-11-29T12:08:46.282Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/caper-c5657  
+ Wed Nov 29 2017 19:08:46 GMT+0700 (WIB)
+[debug] [2017-11-29T12:08:47.572Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-29T12:08:47.573Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/624746014154/clients/_:getWebAppConfig  
+ Wed Nov 29 2017 19:08:47 GMT+0700 (WIB)
+[debug] [2017-11-29T12:08:48.194Z] <<< HTTP RESPONSE 200
+[debug] [2017-11-29T12:08:48.524Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:17)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+    at Server.emit (events.js:207:7)
+    at emitListeningNT (net.js:1370:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.

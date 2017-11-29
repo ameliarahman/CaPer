@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import jwt from 'jsonwebtoken'
+import router from '@/router/index'
 
 Vue.use(Vuex)
 
@@ -14,7 +16,8 @@ const store = new Vuex.Store({
   },
   mutations: {
     setUser: function (state, payload) {
-      state.user = payload
+      let decode = jwt.decode(payload)
+      state.user = decode
       console.log(state.user)
     }
   },
@@ -25,26 +28,28 @@ const store = new Vuex.Store({
         score: null,
         fbID: payload.id
       })
-      .then(({data}) => {
-        localStorage.setItem('qwerty', payload.id)
-        if (data === `Facebook ${payload.name} already used!`) {
-          http.post('/user/signin', {
-            fbID: localStorage.qwerty
-          })
-          .then(({data}) => {
-            localStorage.setItem('zxcvb', data)
-            context.commit('setUser', data)
-          })
-        } else {
-          http.post('/user/signin', {
-            fbID: localStorage.qwerty
-          })
-          .then(({data}) => {
-            localStorage.setItem('zxcvb', data)
-            context.commit('setUser', data)
-          })
-        }
-      })
+        .then(({ data }) => {
+          localStorage.setItem('qwerty', payload.id)
+          if (data === `Facebook ${payload.name} already used!`) {
+            http.post('/user/signin', {
+              fbID: localStorage.qwerty
+            })
+              .then(({ data }) => {
+                localStorage.setItem('zxcvb', data)
+                context.commit('setUser', data)
+                router.push('/')
+              })
+          } else {
+            http.post('/user/signin', {
+              fbID: localStorage.qwerty
+            })
+              .then(({ data }) => {
+                localStorage.setItem('zxcvb', data)
+                context.commit('setUser', data)
+                router.push('/')
+              })
+          }
+        })
     }
   }
 })

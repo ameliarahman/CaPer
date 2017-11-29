@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Room from '@/components/Room'
 import FBSignInButton from 'vue-facebook-signin-button'
 
@@ -16,21 +15,12 @@ Vue.use(FBSignInButton)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld
-    // }
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/room',
       name: 'Room',
       component: Room
     },
+    {
       path: '/login',
       name: 'fblogin',
       component: FBLogin

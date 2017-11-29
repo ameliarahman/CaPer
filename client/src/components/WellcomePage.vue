@@ -1,5 +1,5 @@
 <template>
-  <div class="thirteen wide column center aligned">
+  <div>
     <div class="ui header inverted">
       <img src="../assets/img/logo.png" alt="logo" class="ui image logo">
       <h1>Wellcome, Name</h1>
@@ -28,30 +28,5 @@ export default {
 </script>
 
 <style>
-  body {
-    height: 0 !important;
-  }
-
-  .ui.button.fluid {
-    border-radius: 2px !important;
-  }
-
-  .ui.container {
-    margin-top: 10em;
-  }
-
-  .row.room {
-    margin-top: 20px;
-  }
-
-  .ui.header img {
-    width: 4em !important;
-  }
-
-  @media only screen and (max-width: 700px) {
-    .ui.container {
-      margin-top: 5em;
-    }
-  }
 
 </style>

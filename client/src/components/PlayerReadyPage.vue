@@ -1,5 +1,5 @@
 <template>
-  <div class="thirteen wide column center aligned">
+  <div>
     <div class="ui header inverted">
       <img src="../assets/img/logo.png" alt="logo" class="ui image logo">
       <h1>All Player Ready.</h1>

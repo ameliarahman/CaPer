@@ -1,12 +1,22 @@
 <template>
-  <div class="ui container">
-    <div class="ui middle aligned column centered grid">
-      <div class="twelve wide mobile six wide tablet four wide computer column">
-        <div class="">
-        <button class="tengah ui fluid facebook button">
-          <i class="facebook icon"></i>
-          Login with Facebook
-        </button>
+  <div class="ui container tengah">
+    <div class="ui grid stackable centered">
+      <div class="thirteen wide column center aligned">
+        <div class="ui header inverted">
+          <img src="../assets/img/logo.png" alt="logo" class="ui image logo">
+          <h1>CAPER</h1>
+        </div>
+        <div class="row">
+          <div class="ui grid stackable centered">
+            <div class="seven wide column center aligned">
+              <p>Captca Racer, online real time multiplayer game</p>
+              <br>
+              <button class="ui fluid facebook button">
+                <i class="facebook icon"></i>
+                Login with Facebook
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -26,6 +36,10 @@ export default {
 
 <style scoped>
   .tengah {
-    margin-top: 300px !important;
+    margin-top: 10em !important;
+  }
+
+  h1 {
+    color: black
   }
 </style>

@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "firebase": "^4.6.2",
     "axios": "^0.17.1",
     "semantic-ui": "^2.2.13",
     "vue": "^2.5.2",

@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="ui container">
+      <div class="ui grid stackable centered">
+        <router-view/>
+      </div>
+    </div>
   </div>
 </template>
 

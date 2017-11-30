@@ -11,7 +11,7 @@
           <p>Would you like to do..?</p>
           <div class="ui teal button fluid" id="create-room">
             Create Room
-            <div class="ui modal">
+            <div class="ui modal create-room">
               <i class="close icon"></i>
                 <div class="header">
                   Room
@@ -48,7 +48,7 @@
                   Room
                 </div>
                 <div v-for="room in datarooms">
-                    <p>{{room}}</p>
+                    <button @click="selectRoom(room)">{{room}}</button>
                 </div>
             </div>
             </div>
@@ -72,7 +72,8 @@ export default {
            roomname :'',
            captcha:0
         },
-        datarooms:[]
+        datarooms:[],
+        score:0
       }
   },
   computed: {
@@ -83,9 +84,31 @@ export default {
   methods :{
     createRoom(){
       
+      console.log(this.game.roomname)
+      db.ref(`${this.game.roomname}/`).set({
+            level : this.game.captcha
+          })
+      db.ref(`${this.game.roomname}/${this.user.username}`).set({
+            score : this.score,
+            level : this.game.captcha
+          })
       this.$store.dispatch('createRoom', this.game)
       
     },
+    selectRoom(room){
+      // let self = this
+      var rootRef = db.ref();
+      var urlRef = rootRef.child(`${room}`);
+      urlRef.once("value", function(snapshot) {
+        console.log(snapshot.val())
+      })
+      console.log(room)
+      db.ref(`${room}/${this.user.username}`).set({
+        score : this.score
+      })
+      this.$router.push('/game/play')
+    },
+
     joinRoom(){
      this.datarooms = []
       let self = this
@@ -103,7 +126,7 @@ export default {
  
   mounted () {
     $('#create-room').on('click',()=>{
-      $('.ui.modal')
+      $('.ui.modal.create-room')
       .modal('show')
     })
 
@@ -115,11 +138,13 @@ export default {
     if (!localStorage.qwerty){
         this.$router.push('/login')
       }
-    }
       this.joinRoom()
+      {/* console.log("yoooooo", this.user) */}
+    }
+    
 
   }
-}
+
 </script>
 
 <style>

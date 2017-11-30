@@ -3,7 +3,6 @@ import Router from 'vue-router'
 
 import WellcomePage from '@/components/WellcomePage'
 import PlayPage from '@/components/PlayPage'
-import Login from '@/components/Login'
 import Room from '@/components/Room'
 import FBSignInButton from 'vue-facebook-signin-button'
 import FBLogin from '@/components/LoginFB'
@@ -29,7 +28,7 @@ export default new Router({
       component: PlayPage
     },
     {
-      path: '/room'
+      path: '/room',
       name: 'Room',
       component: Room
     },

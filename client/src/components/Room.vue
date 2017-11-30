@@ -42,7 +42,7 @@ export default {
 
   created(){
     this.selectDataFromFirebase()
-    /* this.insertIntoFirebase()   */
+    this.insertIntoFirebase()
   },
   mounted(){
       if (!localStorage.qwerty){

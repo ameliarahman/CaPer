@@ -36,15 +36,24 @@
 
                 </form>
             </div>
+            </div>
 
-          <div class="ui teal button fluid">
-            Create Room
-          </div>
           <div class="ui divider"></div>
-          <div class="ui teal button fluid">
+          <div class="ui teal button fluid" @click="joinRoom" id="data-room">
             Join Room
           </div>
-        </div>
+          <div class="ui modal room">
+              <i class="close icon"></i>
+                <div class="header">
+                  Room
+                </div>
+                <div v-for="room in datarooms">
+                    <p>{{room}}</p>
+                </div>
+            </div>
+            </div>
+         
+       
       </div>
     </div>
   </div>
@@ -52,6 +61,7 @@
 </template>
 
 <script>
+import db from '@/firebase/firebase'
 import {mapState} from 'vuex'
 export default {
   name: 'WelcomePage',
@@ -61,7 +71,8 @@ export default {
         game:{
            roomname :'',
            captcha:0
-        }
+        },
+        datarooms:[]
       }
   },
   computed: {
@@ -74,14 +85,30 @@ export default {
       
       this.$store.dispatch('createRoom', this.game)
       
+    },
+    joinRoom(){
+     this.datarooms = []
+      let self = this
+      var rootRef = db.ref();
+      var urlRef = rootRef.child("/");
+      urlRef.once("value", function(snapshot) {
+        snapshot.forEach(function(child) {
+         self.datarooms.push(child.key)
+        
+        })
+      })
+      
     }
   },
-  created(){
-    
-  },
+ 
   mounted () {
     $('#create-room').on('click',()=>{
       $('.ui.modal')
+      .modal('show')
+    })
+
+    $('#data-room').on('click',()=>{
+      $('.ui.modal.room')
       .modal('show')
     })
 
@@ -89,8 +116,10 @@ export default {
         this.$router.push('/login')
       }
     }
+      this.joinRoom()
 
   }
+}
 </script>
 
 <style>

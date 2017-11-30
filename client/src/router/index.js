@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import WellcomePage from '@/components/WellcomePage'
+import PlayPage from '@/components/PlayPage'
+import Login from '@/components/Login'
 import Room from '@/components/Room'
 import FBSignInButton from 'vue-facebook-signin-button'
 import FBLogin from '@/components/LoginFB'
@@ -16,6 +20,16 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'WellcomePage',
+      component: WellcomePage
+    },
+    {
+      path: '/play',
+      name: 'PlayPage',
+      component: PlayPage
+    },
+    {
+      path: '/room'
       name: 'Room',
       component: Room
     },

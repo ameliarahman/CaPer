@@ -8,13 +8,9 @@
     <div class="row room">
       <div class="ui grid stackable centered">
         <div class="seven wide column center aligned">
-          <div class="ui massive icon input">
-            <input placeholder="Search massive..." type="text">
-            <i class="search icon"></i>
-          </div>
-          <div class="ui divider"></div>
-          <div class="ui teal button fluid">
-            Join Room
+          <div class="ui massive icon input fluid">
+            <input placeholder="Input Captcha.." type="text">
+            <i class="send icon"></i>
           </div>
         </div>
       </div>
@@ -23,7 +19,6 @@
 </template>
 
 <script>
-import captcha from '@/assets/script'
 
 export default {
 

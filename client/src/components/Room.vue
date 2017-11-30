@@ -70,7 +70,6 @@ export default {
               self.username = snapshot.val()
     })
 
-    console.log("halooooooooooo", this.username)
   }
 
 }

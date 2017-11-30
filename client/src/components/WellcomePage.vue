@@ -53,7 +53,10 @@
                 <div class="ui segment" v-for="room in datarooms">
                   <p>{{room}}</p>
                 </div>
-              </div>
+                <div v-for="room in datarooms">
+                    <button @click="selectRoom(room)">{{room}}</button>
+                </div>
+            </div>
             </div>
           </div>
         </div>
@@ -74,7 +77,8 @@ export default {
            roomname :'',
            captcha:0
         },
-        datarooms:[]
+        datarooms:[],
+        score:0
       }
   },
   computed: {
@@ -85,9 +89,31 @@ export default {
   methods :{
     createRoom(){
       
+      console.log(this.game.roomname)
+      db.ref(`${this.game.roomname}/`).set({
+            level : this.game.captcha
+          })
+      db.ref(`${this.game.roomname}/${this.user.username}`).set({
+            score : this.score,
+            level : this.game.captcha
+          })
       this.$store.dispatch('createRoom', this.game)
       
     },
+    selectRoom(room){
+      // let self = this
+      var rootRef = db.ref();
+      var urlRef = rootRef.child(`${room}`);
+      urlRef.once("value", function(snapshot) {
+        console.log(snapshot.val())
+      })
+      console.log(room)
+      db.ref(`${room}/${this.user.username}`).set({
+        score : this.score
+      })
+      this.$router.push('/game/play')
+    },
+
     joinRoom(){
      this.datarooms = []
       let self = this
@@ -119,9 +145,12 @@ export default {
       }
     // }
       this.joinRoom()
+      {/* console.log("yoooooo", this.user) */}
+    }
+    
 
   }
-}
+
 </script>
 
 <style>

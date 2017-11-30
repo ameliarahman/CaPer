@@ -55,7 +55,7 @@ export default {
   }
 
   .ui.grid.main {
-    margin-top: 4em;
+    margin-top: 3em;
   }
 
   .row.room {

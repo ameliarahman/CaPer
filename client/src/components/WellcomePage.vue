@@ -48,6 +48,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -87,9 +88,9 @@ export default {
     if (!localStorage.qwerty){
         this.$router.push('/login')
       }
+    }
 
   }
-
 </script>
 
 <style>

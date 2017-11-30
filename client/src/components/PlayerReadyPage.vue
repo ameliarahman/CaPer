@@ -9,9 +9,9 @@
         <div class="seven wide column center aligned">
           <i>"We do not stop playing because we grow old, we grow old because we stop playing!"</i>
           <div class="ui divider"></div>
-          <div class="ui teal button inverted">
+          <route-link to="/game/play" class="ui teal button inverted">
             Start Game
-          </div>
+          </route-link>
         </div>
       </div>
     </div>

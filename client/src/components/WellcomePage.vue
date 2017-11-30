@@ -2,6 +2,7 @@
   <div>
     <div class="ui header inverted">
       <img src="../assets/img/logo.png" alt="logo" class="ui image logo">
+
       <h1>Wellcome, {{ user.username }}</h1>
     </div>
     <div class="row room">
@@ -35,6 +36,9 @@
 
                 </form>
             </div>
+
+          <div class="ui teal button fluid">
+            Create Room
           </div>
           <div class="ui divider"></div>
           <div class="ui teal button fluid">
@@ -84,9 +88,8 @@ export default {
         this.$router.push('/login')
       }
 
-      {/* this.createRoom() */}
   }
-}
+
 </script>
 
 <style>

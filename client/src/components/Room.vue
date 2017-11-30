@@ -44,7 +44,6 @@ export default {
   created(){
     console.log("haloooooooooooooooooooo",this.room)
     this.insertIntoFirebase()
-
   },
   mounted(){
       let self = this

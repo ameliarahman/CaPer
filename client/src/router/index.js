@@ -28,7 +28,7 @@ export default new Router({
       component: PlayPage
     },
     {
-      path: '/room'
+      path: '/room',
       name: 'Room',
       component: Room
     },

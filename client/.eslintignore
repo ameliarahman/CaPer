@@ -1,0 +1,7 @@
+/build/
+/config/
+/dist/
+/*.js
+/src/assets/semantic/dist
+/src/firebase/
+/src/components/

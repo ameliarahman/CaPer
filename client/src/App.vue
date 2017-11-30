@@ -79,5 +79,9 @@ export default {
       margin-top: 2em;
     }
   }
+
+  h1 {
+    color: #ffffff !important;
+  }
 </style>
 

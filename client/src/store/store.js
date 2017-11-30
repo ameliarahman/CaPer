@@ -61,7 +61,7 @@ const store = new Vuex.Store({
     },
     createRoom: function(context, payload){
       context.commit('setRoom', payload)
-      router.push('/room')
+      router.push('/game/play')
     }
   }
 })

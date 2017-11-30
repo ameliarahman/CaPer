@@ -11,7 +11,7 @@
           <p>Would you like to do..?</p>
           <div class="ui teal button fluid" id="create-room">
             Create Room
-            <div class="ui modal">
+            <div class="ui modal create-room">
               <i class="close icon"></i>
                 <div class="header">
                   Room
@@ -48,7 +48,7 @@
                   Room
                 </div>
                 <div v-for="room in datarooms">
-                    <p>{{room}}</p>
+                    <button @click="selectRoom">{{room}}</button>
                 </div>
             </div>
             </div>
@@ -86,6 +86,10 @@ export default {
       this.$store.dispatch('createRoom', this.game)
       
     },
+    selectRoom(){
+
+    },
+    
     joinRoom(){
      this.datarooms = []
       let self = this
@@ -103,7 +107,7 @@ export default {
  
   mounted () {
     $('#create-room').on('click',()=>{
-      $('.ui.modal')
+      $('.ui.modal.create-room')
       .modal('show')
     })
 
@@ -115,11 +119,13 @@ export default {
     if (!localStorage.qwerty){
         this.$router.push('/login')
       }
-    }
       this.joinRoom()
+      {/* console.log("yoooooo", this.user) */}
+    }
+    
 
   }
-}
+
 </script>
 
 <style>

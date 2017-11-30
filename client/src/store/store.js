@@ -12,13 +12,18 @@ const http = axios.create({
 
 const store = new Vuex.Store({
   state: {
-    user: []
+    user: [],
+    room :[]
   },
   mutations: {
     setUser: function (state, payload) {
       let decode = jwt.decode(payload)
       state.user = decode
-      console.log(state.user)
+      
+    },
+    setRoom: function(state, payload){
+      state.room = payload
+      // console.log('payload')
     }
   },
   actions: {
@@ -29,6 +34,7 @@ const store = new Vuex.Store({
         fbID: payload.id
       })
         .then(({ data }) => {
+         
           localStorage.setItem('qwerty', payload.id)
           if (data === `Facebook ${payload.name} already used!`) {
             http.post('/user/signin', {
@@ -38,6 +44,7 @@ const store = new Vuex.Store({
                 localStorage.setItem('zxcvb', data)
                 context.commit('setUser', data)
                 router.push('/')
+            
               })
           } else {
             http.post('/user/signin', {
@@ -47,9 +54,14 @@ const store = new Vuex.Store({
                 localStorage.setItem('zxcvb', data)
                 context.commit('setUser', data)
                 router.push('/')
+               
               })
           }
         })
+    },
+    createRoom: function(context, payload){
+      context.commit('setRoom', payload)
+      router.push('/room')
     }
   }
 })

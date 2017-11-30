@@ -1,54 +1,64 @@
 <template>
     <div>
         <h1>Ini Percobaan</h1>
-
-        {{players}}
+        {{username}}
     </div>
 </template>
 
 <script>
 import db from '@/firebase/firebase'
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
+
 export default {
   name: 'Room',
   data () {
     return {
-        rooms : 'hahah',
-        score : 0,
-        players:''
+       score : 0,
+       username:''
       }
   },
   computed:{
     ...mapState([
-        'user'
+        'user',
+        'room'
     ])
   },
   methods : {
+      ...mapActions([
+          'createRoom'
+      ]),
+
       insertIntoFirebase () {
-          db.ref(`${this.rooms}/${this.user.username}`).set({
+          db.ref(`${this.room.roomname}/${this.user.username}`).set({
             score : this.score,
+            level : this.room.captcha,
             isWinner:false
           })
       },
       selectDataFromFirebase(){
-          let dataPlayer = db.ref(`${this.rooms}/`)
-          dataPlayer.on('value', function(snapshot) {
-               
-              console.log(snapshot.val())
-          })
+        
       }
       
   },
 
   created(){
-    this.selectDataFromFirebase()
-    /* this.insertIntoFirebase()   */
+    console.log("haloooooooooooooooooooo",this.room)
+    this.insertIntoFirebase()
+
   },
   mounted(){
+      let self = this
       if (!localStorage.qwerty){
         this.$router.push('/login')
       }
-      console.log(this.user)
+
+      let dataPlayer = db.ref(`${this.room.roomname}/`)
+          dataPlayer.on('value', function(snapshot) {
+               
+              self.username = snapshot.val()
+    })
+
+    console.log("halooooooooooo", this.username)
   }
 
 }

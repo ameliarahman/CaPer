@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Room from '@/components/Room'
 import FBSignInButton from 'vue-facebook-signin-button'
 import FBLogin from '@/components/LoginFB'
-import FBshare from '@/components/ShareFB'
 
 import '@/assets/semantic/dist/semantic.min.css'
 import '@/assets/semantic/dist/jquery.js'
@@ -24,11 +23,6 @@ export default new Router({
       path: '/login',
       name: 'fblogin',
       component: FBLogin
-    },
-    {
-      path: '/share',
-      name: 'FBshare',
-      component: FBshare
     }
   ]
 })
